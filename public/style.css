@@ -7,9 +7,76 @@ body{
   font-family: 'Work Sans', sans-serif;
 }
 
+a{
+  color: #FDFFFC;
+  font-size: 15px;
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+}
+
 /*main title font*/
 h3{
   text-align: center;
   font-family: 'Work Sans', sans-serif;
   color: #FDFFFC;
+}
+
+/*image border and fill*/
+img{
+  border: 3px solid #e24d53;
+  background-color: white;
+  opacity: 0.7;
+}
+
+/*using for snowflake characters */
+h1{
+  font-family: 'Work Sans', sans-serif;
+  color: #e24d53;
+  display: inline;
+  border: 3px solid #FDFFFC ;
+}
+
+/*input search box */
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f8fbf3;
+/*    background-image: url('searchicon.png');*/
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    font-family: 'Work Sans', sans-serif;
+}
+
+input[type=text]:focus {
+    width: 30%;
+}
+
+/*buttons for more of same and go back*/
+button {
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  font-family: 'Work Sans', sans-serif;
+  color: #000000;
+  font-size: 15px;
+  background: #f8fbf3;
+  padding: 8px 20px 10px 20px;
+/*  border: solid #1f628d 2px;*/
+  text-decoration: none;
+}
+
+button:hover {
+  background: #7293a8;
+  background-image: -webkit-linear-gradient(top, #7293a8, #8b8f91);
+  background-image: -moz-linear-gradient(top, #7293a8, #8b8f91);
+  background-image: -ms-linear-gradient(top, #7293a8, #8b8f91);
+  background-image: -o-linear-gradient(top, #7293a8, #8b8f91);
+  background-image: linear-gradient(to bottom, #7293a8, #8b8f91);
+  text-decoration: none;
 }
