@@ -77,11 +77,6 @@ var saveGif = function(images){
   }
 }
 
-var setBoxToName = function(query){
-  var inputText = userInput;
-  document.querySelector(query).value = inputText;
-}
-
 var clearDocument = function(){
   imageArray = [];
   gifCount = 0;
@@ -97,8 +92,7 @@ var enterKey = function(event){
 }
 
 // exmple -- document.getElementById("mySelect").disabled = true;
-// The disabled property sets or returns whether a drop-down list should be disabled, or not.
-A disabled element is unusable and un-clickable.
+// The disabled property sets or return that a disabled element is unusable and un-clickable.
 var buttonOn = function(buttonName){
   document.getElementById(buttonName).disabled = false;
 }
@@ -108,6 +102,7 @@ var buttonOff = function(buttonName){
 }
 
 var goForward = function(){
+  // start at 0
   if(gifCount === imageArray.length){
     buttonOff("next-gif");
   } else {
