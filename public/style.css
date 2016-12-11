@@ -1,0 +1,15 @@
+/*default values for body*/
+body{
+  background-color: #5d747e;
+  color: #FDFFFC;
+  font-size: 15px;
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+}
+
+/*main title font*/
+h3{
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+  color: #FDFFFC;
+}
