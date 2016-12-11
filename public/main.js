@@ -70,35 +70,6 @@ var newImage = function(url){
   img.setAttribute('src', url);
 }
 
-var goForward = function(){
-  if(gifCount === (imageArray.length-1)){
-    buttonOff("next-gif");
-  } else {
-    buttonOn("last-gif");
-    gifCount++;
-    displayGif();
-    console.log("called next image:", gifCount);
-  }
-}
-
-var goBack = function(){
-  if(gifCount === 0){
-    buttonOff("last-gif");
-  } else {
-    buttonOn("next-gif");
-    gifCount--;
-    displayGif();
-    console.log("called last image:", gifCount);
-  }
-}
-
-var buttonOff = function(buttonName){
-  document.getElementById(buttonName).disabled = true;
-}
-
-var buttonOn = function(buttonName){
-  document.getElementById(buttonName).disabled = false;
-}
 
 var getUrlLink = function(){
   // link / imagearray not working. Links to savegif hash
@@ -126,11 +97,32 @@ var enterKey = function(event){
   }
 }
 
-var performFunction = function(arrayName, query){
-  console.log('do the click run', performFunction);
-  clearDocument();
-  userInput = inputText;
-  var url = loadUrl();
-  makeRequest(url, requestComplete);
-  setBoxToName(query);
+var buttonOff = function(buttonName){
+  document.getElementById(buttonName).disabled = true;
+}
+
+var buttonOn = function(buttonName){
+  document.getElementById(buttonName).disabled = false;
+}
+
+var goForward = function(){
+  if(gifCount === (imageArray.length-1)){
+    buttonOff("next-gif");
+  } else {
+    buttonOn("last-gif");
+    gifCount++;
+    displayGif();
+    console.log("called next image:", gifCount);
+  }
+}
+
+var goBack = function(){
+  if(gifCount === 0){
+    buttonOff("last-gif");
+  } else {
+    buttonOn("next-gif");
+    gifCount--;
+    displayGif();
+    console.log("called last image:", gifCount);
+  }
 }
