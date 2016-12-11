@@ -26,17 +26,14 @@ var populateList = function(ulTag, giphy) {
     }
 }
 
-var addRuddGifs = function(ulTag, giphy) {
+// var addRuddGifs = function(ulTag, giphy) {
 
-    var liTag = document.createElement('li');
-    var pTag = document.createElement('p');
-    var imgTag = document.createElement('img');
-    imgTag.src = giphy.var gifCount = 0;;
-    pTag.innerText = "testing " + giphy.data;
-    liTag.appendChild(imgTag);
-    liTag.appendChild(pTag);
-    ulTag.appendChild(liTag);
-}
+//     var imgTag = document.createElement('img');
+//     imgTag.src = giphy.var gifCount = 0;;
+//     pTag.innerText = "testing " + giphy.data;
+//     liTag.appendChild(imgTag);
+
+// }
 
 
 

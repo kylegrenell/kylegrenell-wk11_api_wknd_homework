@@ -20,6 +20,13 @@ window.onkeyup = function(event){
   enterKey(event);
 }
 
+var getUrlLink = function(){
+  // link / imagearray not working. Links to savegif hash
+  var link = imageArray[gifCount].link;
+  // console.log(imageArray);
+  return link;
+}
+
 var makeRequest = function(url, callback){
   console.log("Request Succesful");
   var request = new XMLHttpRequest();
@@ -52,6 +59,15 @@ var searchBar = function(){
   console.log("the search query was for:", search);
 }
 
+var newImage = function(url){
+  var img = document.querySelector("#gif-image");
+  img.setAttribute('src', url);
+}
+
+var displayGif = function(){
+  newImage(getUrlLink());
+}
+
 var saveGif = function(images){
   for(var i = 0; i < images.data.length; i++){
     var imageData = {      
@@ -59,23 +75,6 @@ var saveGif = function(images){
     }
     imageArray.push(imageData);
   }
-}
-
-var displayGif = function(){
-  newImage(getUrlLink());
-}
-
-var newImage = function(url){
-  var img = document.querySelector("#gif-image");
-  img.setAttribute('src', url);
-}
-
-
-var getUrlLink = function(){
-  // link / imagearray not working. Links to savegif hash
-  var link = imageArray[gifCount].link;
-  // console.log(imageArray);
-  return link;
 }
 
 var setBoxToName = function(query){
@@ -97,16 +96,19 @@ var enterKey = function(event){
   }
 }
 
-var buttonOff = function(buttonName){
-  document.getElementById(buttonName).disabled = true;
-}
-
+// exmple -- document.getElementById("mySelect").disabled = true;
+// The disabled property sets or returns whether a drop-down list should be disabled, or not.
+A disabled element is unusable and un-clickable.
 var buttonOn = function(buttonName){
   document.getElementById(buttonName).disabled = false;
 }
 
+var buttonOff = function(buttonName){
+  document.getElementById(buttonName).disabled = true;
+}
+
 var goForward = function(){
-  if(gifCount === (imageArray.length-1)){
+  if(gifCount === imageArray.length){
     buttonOff("next-gif");
   } else {
     buttonOn("last-gif");
