@@ -5,7 +5,7 @@ var loadUrl = function(){
 }
 
 window.onload = function(){
-  var url = loadUrl();
+  // var url = loadUrl();
   var nextImageBtn = document.querySelector("#next-gif");
   var lastImageBtn = document.querySelector("#last-gif");
   buttonOff("last-gif");
@@ -14,15 +14,19 @@ window.onload = function(){
   lastImageBtn.onclick = goBack;
 }
 
+// used in 3 different places because it kept saying can't find it within fucntions...
 var userInput = "";
+var imageArray = [];
+var currentGifIndex = 0;
 
 window.onkeyup = function(event){
   enterKey(event);
 }
 
 var getUrlLink = function(){
+  console.log( 'imageArray:', imageArray);
   // link / imagearray not working. Links to savegif hash
-  var link = imageArray[gifCount].link;
+  var link = imageArray[currentGifIndex];
   // console.log(imageArray);
   return link;
 }
@@ -50,7 +54,7 @@ var requestComplete = function(){
 var searchBar = function(){
   // when doing a new search need page to reset otherwise no new search can be performed
   var imageArray = [];
-  var gifCount = 0;
+  var currentGifIndex = 0;
   clearDocument();
   var search = document.querySelector("#search").value;
   userInput = search;
@@ -70,16 +74,14 @@ var displayGif = function(){
 
 var saveGif = function(images){
   for(var i = 0; i < images.data.length; i++){
-    var imageData = {      
-      link: images.data[i].images.original.url
-    }
-    imageArray.push(imageData);
+    imageArray.push( images.data[i].images.original.url );
   }
+  console.log("saved " + imageArray.length + " images" );
 }
 
 var clearDocument = function(){
   imageArray = [];
-  gifCount = 0;
+  currentGifIndex = 0;
   var img = document.querySelector("#gif-image");
   // element.setAttribute(attributename,attributevalue)
   img.setAttribute("src", "");
@@ -103,23 +105,22 @@ var buttonOff = function(buttonName){
 
 var goForward = function(){
   // start at 0
-  if(gifCount === imageArray.length){
+  if(currentGifIndex === imageArray.length - 1){
+    log( "turning next button off");
     buttonOff("next-gif");
   } else {
     buttonOn("last-gif");
-    gifCount++;
+    currentGifIndex++;
     displayGif();
-    console.log("called next image:", gifCount);
+    console.log("called next image:", currentGifIndex);
   }
 }
 
 var goBack = function(){
-  if(gifCount === 0){
-    buttonOff("last-gif");
-  } else {
+  if(currentGifIndex === 0){
     buttonOn("next-gif");
     gifCount--;
     displayGif();
-    console.log("called last image:", gifCount);
+    console.log("called last image:", currentGifIndex);
   }
 }
