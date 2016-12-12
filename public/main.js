@@ -119,7 +119,9 @@ var goForward = function(){
 var goBack = function(){
   if(currentGifIndex === 0){
     buttonOn("next-gif");
-    gifCount--;
+    } else {
+    buttonOff("last-gif");
+    currentGifIndex--;
     displayGif();
     console.log("called last image:", currentGifIndex);
   }
